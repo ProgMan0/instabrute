@@ -5,12 +5,17 @@ Program which checking all passwords from list to hack any account of instagram.
 ```
 # clone the repo
 $ git clone https://github.com/ProgMan0/instabrute
+
+# going to main directory
+$ cd instabrute
 ```
 ## Usage
 ``` 
+# install modules
+$ pip install selenium
+
 # starting program
 $ python instabrute.py
-
-
-
 ```
+
+
